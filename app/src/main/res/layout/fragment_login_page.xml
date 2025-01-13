@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/blury_background"
+    android:scaleType="centerCrop"
+    />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_login_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.09" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_login_Right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <TextView
+            android:id="@+id/Appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_kleine_shape"
+            android:text="@string/App_name"
+            android:drawablePadding="6dp"
+            android:textStyle="bold"
+            style="@style/h3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline_login_left"
+            android:layout_marginTop="140dp"/>
+        <TextView
+            android:id="@+id/Theaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_address"
+            style="@style/h4"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="@id/guideline_login_left"
+            app:layout_constraintTop_toBottomOf="@+id/Appname"/>
+        <TextView
+            android:id="@+id/QUILTY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/h2"
+            android:text="@string/login_address2"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline_login_left"
+            app:layout_constraintTop_toBottomOf="@+id/Theaddress"/>
+        <EditText
+            android:id="@+id/Email"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            style="@style/editText"
+            android:hint="@string/email"
+            app:layout_constraintStart_toStartOf="@id/guideline_login_left"
+            app:layout_constraintEnd_toEndOf="@id/guideline_login_Right"
+            app:layout_constraintTop_toBottomOf="@+id/QUILTY"
+            android:layout_marginTop="60dp"
+            android:inputType="textEmailAddress"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            style="@style/editText"
+            android:hint="@string/password"
+            app:layout_constraintStart_toStartOf="@id/guideline_login_left"
+            app:layout_constraintEnd_toEndOf="@id/guideline_login_Right"
+            app:layout_constraintTop_toBottomOf="@+id/Email"
+            android:layout_marginTop="20dp"
+            android:inputType="textPassword"/>
+        <TextView
+            android:id="@+id/forgetpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/h2"
+            android:text="@string/forgetpassword"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline_login_left"
+            app:layout_constraintTop_toBottomOf="@+id/password"/>
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/login_button"
+           android:layout_width="0dp"
+           android:layout_height="60dp"
+           style="@style/blueButtonStyle"
+           android:text="@string/login"
+           app:layout_constraintStart_toStartOf="@id/guideline_login_left"
+           app:layout_constraintEnd_toEndOf="@id/guideline_login_Right"
+           app:layout_constraintTop_toBottomOf="@+id/forgetpassword"/>
+        <ImageView
+            android:id="@+id/facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/facebook_login"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline_login_left"
+            app:layout_constraintTop_toBottomOf="@+id/login_button"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/facebook"
+            app:layout_constraintStart_toStartOf="@id/facebook"
+            app:layout_constraintEnd_toEndOf="@id/facebook"
+            app:layout_constraintTop_toTopOf="@id/facebook"
+            app:layout_constraintBottom_toBottomOf="@id/facebook"/>
+        <ImageView
+            android:id="@+id/Google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/google_login"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_login_Right"
+            app:layout_constraintTop_toBottomOf="@id/login_button" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/google"
+            app:layout_constraintStart_toStartOf="@id/Google"
+            app:layout_constraintEnd_toEndOf="@id/Google"
+            app:layout_constraintTop_toTopOf="@id/Google"
+            app:layout_constraintBottom_toBottomOf="@id/Google"/>
+
+
+
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

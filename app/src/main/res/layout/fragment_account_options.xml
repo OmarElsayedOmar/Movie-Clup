@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/blury_background"
+        android:scaleType="centerCrop"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/Appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_kleine_shape"
+            android:text="@string/App_name"
+            android:drawablePadding="6dp"
+            android:textStyle="bold"
+            style="@style/h3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="155dp"/>
+        <TextView
+            android:id="@+id/Theaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rightaddress"
+            style="@style/h4"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="@+id/Appname"
+            app:layout_constraintEnd_toEndOf="@+id/Appname"
+            app:layout_constraintTop_toBottomOf="@+id/Appname"/>
+        <TextView
+            android:id="@+id/QUILTY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/h2"
+            android:text="@string/QUilty"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="@+id/Theaddress"
+            app:layout_constraintEnd_toEndOf="@+id/Theaddress"
+            app:layout_constraintTop_toBottomOf="@+id/Theaddress"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_reg"
+            style="@style/blueButtonStyle"
+            android:layout_width="@dimen/largebuttonwidth"
+            android:layout_height="@dimen/largebuttonheght"
+            android:text="@string/Button_Reg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/QUILTY"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="@+id/QUILTY"
+            app:layout_constraintTop_toBottomOf="@+id/QUILTY"
+            app:layout_constraintVertical_bias="0.441" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="@dimen/largebuttonwidth"
+            android:layout_height="55dp"
+            style="@style/whiteButtonStyle"
+            app:layout_constraintStart_toStartOf="@+id/button_reg"
+            app:layout_constraintEnd_toEndOf="@+id/button_reg"
+            app:layout_constraintTop_toBottomOf="@+id/button_reg"
+            android:layout_marginTop="15dp"
+            android:text="@string/Button_reg"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

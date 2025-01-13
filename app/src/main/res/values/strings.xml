@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="omar">Omar</string>
+    <string name="rightaddress">The Appropriate Address \nTo Watch The Most Famous Movies \nAnyDay</string>
+    <string name="QUilty">its now very easy to rech the\nbest qulity amoung the\n Movies on the internet!</string>
+    <string name="Button_Reg">Register</string>
+    <string name="login">Login</string>
+    <string name="Button_reg">Login</string>
+    <string name="App_name">Movieclub</string>
+    <string name="login_address">Let\'s Login</string>
+    <string name="login_address2">Dont have an account? Register</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="forgetpassword">Forget Password\n</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="letsreg">Let\'s Register</string>
+    <string name="login_address3">"Do you have an account? Log in "</string>
+    <string name="fristname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="omar_sis_decsrtion">Omar;sis decsrtion</string>
+    <string name="add">Add</string>
+    <string name="search">Search</string>
+    <string name="delete">Delete</string>
+    <string name="android_developer">Android Developer</string>
+    <string name="omar1">Omar</string>
+    <string name="years_after_witnessing_the_death_of_the_revered_hero_maximus_at_the_hands_of_his_uncle_lucius_is_forced_to_enter_the_colosseum_after_his_home_is_conquered_by_the_tyrannical_emperors_who_now_lead_rome_with_an_iron_fist_with_rage_in_his_heart_and_the_future_of_the_empire_at_stake_lucius_must_look_to_his_past_to_find_strength_and_honor_to_return_the_glory_of_rome_to_its_people">Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius is forced to enter the Colosseum after his home is conquered by the tyrannical Emperors who now lead Rome with an iron fist. With rage in his heart and the future of the Empire at stake, Lucius must look to his past to find strength and honor to return the glory of Rome to its people</string>
+    <string name="poster">Poster</string>
+    <string name="more_detelis">More Detelis</string>
+    <string name="movie_rating">Movie Rating</string>
+    <string name="Rating">7.9</string>
+    <string name="vote_average">vote_average</string>
+    <string name="backdrop_description">Image\n</string>
+    <string name="overview">OverView</string>
+    <string name="cast">Cast</string>
+</resources>
