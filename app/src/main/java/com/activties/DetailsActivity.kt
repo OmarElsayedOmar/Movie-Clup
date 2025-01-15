@@ -9,19 +9,19 @@ import com.bumptech.glide.Glide
 import com.data.CastList
 import com.data.CreditsResponse
 import com.data.RetrofitClient
-import com.example.myapplication.databinding.ActivityDetailsActivityBinding
+import com.example.myapplication.databinding.ActivityDetailsBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class DetailsActivity : AppCompatActivity() {
-    lateinit var binding: ActivityDetailsActivityBinding
+    lateinit var binding: ActivityDetailsBinding
     private lateinit var castRecyclerView: RecyclerView
     private val CastList = mutableListOf<CastList>()
     private lateinit var castAdapter: CastAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailsActivityBinding.inflate(layoutInflater)
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         castRecyclerView = binding.RecyclerView2
