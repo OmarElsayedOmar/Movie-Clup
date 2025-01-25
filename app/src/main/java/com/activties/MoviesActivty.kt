@@ -1,5 +1,4 @@
 package com.activties
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -7,12 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.adapters.CustomAdapter
 import com.data.MovieList
-import com.data.MovieResponse
 import com.data.RetrofitClient
 import com.example.myapplication.databinding.ActivityMoviesBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class MoviesActivty : AppCompatActivity(),MovieInteractionListener {
@@ -31,31 +31,25 @@ class MoviesActivty : AppCompatActivity(),MovieInteractionListener {
 
     private fun loadMovies() {
             val apiKey = "ed0579c5972d5b789fec9a33235fcf3f"
-            RetrofitClient.apiService.getPopularMovies(apiKey)
-                .enqueue(object : Callback<MovieResponse> {
-                    override fun onResponse(
-                        call: Call<MovieResponse>,
-                        response: Response<MovieResponse>
-                    ) {
-                        if (response.isSuccessful) {
-                            response.body()?.results?.let { movies ->
-                                MovieList.clear()
-                                MovieList.addAll(movies )
-                               // Log.d("Movies Loaded", "Movie List: $movieList")
-                                movieAdapter = CustomAdapter(MovieList,this@MoviesActivty)
-                                newRecyclerView.adapter = movieAdapter
-                            }
-                        }  else {
-                        Toast.makeText(this@MoviesActivty, "Error: ${response.code()}", Toast.LENGTH_SHORT).show()
-                    }
-                    }
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = RetrofitClient.apiService.getPopularMovies(apiKey)
 
-                    override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                        Toast.makeText(this@MoviesActivty, "Failed to load movies", Toast.LENGTH_SHORT).show()
+                withContext(Main) {
+                    response.results.let { movies ->
+                        MovieList.clear()
+                        MovieList.addAll(movies)
+                        movieAdapter = CustomAdapter(MovieList, this@MoviesActivty)
+                        newRecyclerView.adapter = movieAdapter
                     }
-
-                })
+                }
+            } catch (e: Exception) {
+                withContext(Main) {
+                    Toast.makeText(this@MoviesActivty, "Failed to load movies: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
+    }
     override fun onClickItem(movieList: MovieList) {
         val intent= Intent(this,DetailsActivity::class.java)
         intent.putExtra("movie",movieList)
