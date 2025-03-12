@@ -1,5 +1,6 @@
 package com.activties
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,11 @@ import com.data.CastList
 import com.data.CreditsResponse
 import com.data.RetrofitClient
 import com.example.myapplication.databinding.ActivityDetailsBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,34 +44,26 @@ class DetailsActivity : AppCompatActivity() {
 
     private fun loadMoviesCast(movieId: Int) {
         val apiKey = "ed0579c5972d5b789fec9a33235fcf3f"
-     RetrofitClient.apiService.getMoviesCredits(movieId,apiKey)
-         .enqueue(object : Callback<CreditsResponse> {
-                override fun onResponse(
-                    call: Call<CreditsResponse>,
-                    response: Response<CreditsResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        response.body()?.cast?.let { credits->
-                            CastList.clear()
-                            CastList.addAll(credits)
-                            castAdapter = CastAdapter(CastList,this@DetailsActivity)
-                            castRecyclerView.adapter = castAdapter
-                        }
-                    }  else {
-                        Toast.makeText(this@DetailsActivity, "Error: ${response.code()}", Toast.LENGTH_SHORT).show()
-                    }
+        binding.progressBar.visibility = View.VISIBLE
+        CoroutineScope(IO).launch {
+            try {
+                val response = RetrofitClient.apiService.getMoviesCredits(movieId, apiKey)
+                withContext(Main) {
+                    CastList.clear()
+                    CastList.addAll(response.cast)
+                    castAdapter = CastAdapter(CastList, this@DetailsActivity)
+                    castRecyclerView.adapter = castAdapter
+                    binding.progressBar.visibility = View.GONE
                 }
-
-                override fun onFailure(call: Call<CreditsResponse>, t: Throwable) {
-                    Toast.makeText(this@DetailsActivity, "Failed to load Cast", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                withContext(Main) {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this@DetailsActivity, "Failed to load Cast: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
-
-            })
+            }
+        }
     }
-
-
-    }
-
+}
 
 
 

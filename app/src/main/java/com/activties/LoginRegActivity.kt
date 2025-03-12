@@ -22,19 +22,13 @@ import java.net.URL
 
 
 class LoginRegActivity :AppCompatActivity() {
-    val client = OkHttpClient
     private lateinit var binding: ActivityMainBinding
-    private lateinit var databaseHelper: ArticalDbHleper
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        databaseHelper = ArticalDbHleper(applicationContext)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         addListener()
         service()
-        //getSms()
         BrodcastReceiver()
 
     }
