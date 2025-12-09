@@ -1,14 +1,14 @@
 package com.activties
+
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.adapters.CastAdapter
-import com.data.MovieList
 import com.bumptech.glide.Glide
 import com.data.CastList
-import com.data.CreditsResponse
+import com.data.MovieList
 import com.data.RetrofitClient
 import com.example.myapplication.databinding.ActivityDetailsBinding
 import kotlinx.coroutines.CoroutineScope
@@ -16,9 +16,6 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class DetailsActivity : AppCompatActivity() {
     lateinit var binding: ActivityDetailsBinding
@@ -58,7 +55,11 @@ class DetailsActivity : AppCompatActivity() {
             } catch (e: Exception) {
                 withContext(Main) {
                     binding.progressBar.visibility = View.GONE
-                    Toast.makeText(this@DetailsActivity, "Failed to load Cast: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@DetailsActivity,
+                        "Failed to load Cast: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
